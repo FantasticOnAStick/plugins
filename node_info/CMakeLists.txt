@@ -6,7 +6,7 @@ include_directories(
   ../../foas_message/include
   ../../foas_plugin/include)
 
-file(GLOB_RECURSE LIB_SRC src/node FOLLOW_SYMLINKS *.cpp)
+file(GLOB_RECURSE LIB_SRC src/node_info FOLLOW_SYMLINKS *.cpp)
 add_library(${PROJECT_NAME} SHARED
   ${LIB_SRC})
 

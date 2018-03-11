@@ -12,7 +12,7 @@ namespace foas {
   namespace plugins {
     class NodeInfo : public plugin::Plugin {
     public:
-      NodeInfo();
+      NodeInfo(std::shared_ptr<message::Bus> bus);
       ~NodeInfo();
     };
   }
@@ -24,8 +24,8 @@ extern "C" {
     return "node_info";
   }
   
-  std::shared_ptr<foas::plugin::Plugin> CreateInstance() {
-    return std::make_shared<foas::plugins::NodeInfo>();
+  std::shared_ptr<foas::plugin::Plugin> CreateInstance(std::shared_ptr<foas::message::Bus> bus) {
+    return std::make_shared<foas::plugins::NodeInfo>(bus);
   }
 }
 

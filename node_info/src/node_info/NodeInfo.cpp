@@ -3,7 +3,7 @@
 
 namespace foas {
   namespace plugins {
-    NodeInfo::NodeInfo() {
+    NodeInfo::NodeInfo(std::shared_ptr<message::Bus> bus) : plugin::Plugin(bus) {
       std::cout << "NodeInfo!" << std::endl;
     }
 
