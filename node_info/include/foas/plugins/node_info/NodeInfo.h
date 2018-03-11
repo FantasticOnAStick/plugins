@@ -2,6 +2,7 @@
 #define __FOAS_PLUGINS_NODEINFO_H__
 
 
+#include <iostream>
 #include <memory>
 
 #include <foas/plugin/Plugin.h>
@@ -19,6 +20,10 @@ namespace foas {
 
 
 extern "C" {
+  std::string GetName() {
+    return "node_info";
+  }
+  
   std::shared_ptr<foas::plugin::Plugin> CreateInstance() {
     return std::make_shared<foas::plugins::NodeInfo>();
   }
