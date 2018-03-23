@@ -5,15 +5,27 @@
 #include <iostream>
 #include <memory>
 
+#include <foas/common/Task.h>
+#include <foas/common/Protected.hpp>
+
 #include <foas/plugin/Plugin.h>
 
 
 namespace foas {
   namespace plugins {
     class NodeInfo : public plugin::Plugin {
+    private:
+      common::Task mRunner;
+      common::Protected<bool> mStop;
+      
     public:
       NodeInfo(std::shared_ptr<message::Bus> bus);
       ~NodeInfo();
+      
+      virtual bool Initialize() override;
+      virtual void Deinitialize() override;
+
+      void Run();
     };
   }
 }
