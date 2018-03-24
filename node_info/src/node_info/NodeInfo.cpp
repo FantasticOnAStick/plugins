@@ -10,6 +10,9 @@ namespace foas {
     }
     
     bool NodeInfo::Initialize() {
+      std::shared_ptr<message::Class> nodeInfoClass = mBus->GetClassManager()->CreateClass("NodeInfo");
+      nodeInfoClass->AddSuperClass("Info");
+      
       mRunner.Start();
       
       return true;
@@ -23,7 +26,10 @@ namespace foas {
     void NodeInfo::Run() {
       while(mStop == false) {
 	std::cout << "Step." << std::endl;
-
+	
+	std::shared_ptr<common::Property> nodeInfo = mBus->GetClassManager()->InstantiateClass("NodeInfo");
+	// ...
+	
 	common::Task::Sleep(1000);
       }
     }

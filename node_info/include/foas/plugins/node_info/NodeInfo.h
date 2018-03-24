@@ -10,6 +10,8 @@
 
 #include <foas/plugin/Plugin.h>
 
+#include <foas/message/ClassManager.h>
+
 
 namespace foas {
   namespace plugins {

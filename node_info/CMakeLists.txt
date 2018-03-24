@@ -1,5 +1,7 @@
 project(foas_plugins_node_info)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic -fPIC")
+
 include_directories(
   include
   ../../foas_common/include
