@@ -30,6 +30,8 @@ namespace foas {
 	std::shared_ptr<common::Property> nodeInfo = mBus->GetClassManager()->InstantiateClass("NodeInfo");
 	// ...
 	
+	mBus->QueueMessage("/info", std::make_shared<message::Message>(nodeInfo));
+	
 	common::Task::Sleep(1000);
       }
     }
